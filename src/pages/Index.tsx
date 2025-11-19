@@ -7,24 +7,10 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background p-4">
       {/* Header */}
-      <header className="mb-6">
-        <div className="flex items-center justify-between">
-          <div>
-            <h1 className="text-2xl font-bold text-foreground">
-              Análisis de Torque SRP
-            </h1>
-            <p className="text-sm text-muted-foreground mt-1">
-              Unidad: <span className="font-semibold text-foreground">C-320D-256-120</span> | 
-              Stroke: <span className="font-semibold">100.0 in</span> | 
-              R: <span className="font-semibold">50.0 in</span> | 
-              C: <span className="font-semibold">120.0 in</span>
-            </p>
-          </div>
-          <div className="flex items-center gap-2 px-4 py-2 bg-success/10 border border-success/30 rounded-lg">
-            <div className="h-2 w-2 rounded-full bg-success animate-pulse"></div>
-            <span className="text-sm font-medium text-success">Sistema Operativo</span>
-          </div>
-        </div>
+      <header className="mb-6 text-center">
+        <h1 className="text-2xl font-bold text-foreground">
+          Análisis de Torque
+        </h1>
       </header>
 
       {/* Main Grid Layout */}

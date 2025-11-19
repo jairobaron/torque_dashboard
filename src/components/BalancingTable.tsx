@@ -53,9 +53,12 @@ export default function BalancingTable() {
         </Table>
       </div>
       
-      <div className="mt-2 p-2 bg-warning/10 border border-warning/30 rounded-lg">
-        <p className="text-xs font-medium text-warning-foreground">
-          ⚠️ Valores negativos: exceso
+      <div className="mt-3 pt-3 border-t border-border">
+        <p className="text-xs text-muted-foreground">
+          <span className="font-semibold text-foreground">Pérdida por desbalanceo:</span> 0.352 kW
+        </p>
+        <p className="text-xs text-muted-foreground mt-0.5">
+          (SPM=8.3, ρ=0.30)
         </p>
       </div>
     </Card>
