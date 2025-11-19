@@ -31,14 +31,7 @@ const torqueData = generateTorqueData();
 export default function TorqueChart() {
   return (
     <Card className="p-4">
-      <div className="mb-4">
-        <h2 className="text-lg font-semibold text-foreground">
-          Análisis de Torque en el Reductor
-        </h2>
-        <p className="text-sm text-muted-foreground">C-320D-256-120</p>
-      </div>
-      
-      <ResponsiveContainer width="100%" height={380}>
+      <ResponsiveContainer width="100%" height={400}>
         <LineChart data={torqueData} margin={{ top: 5, right: 20, left: 20, bottom: 5 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" opacity={0.3} />
           <XAxis 
