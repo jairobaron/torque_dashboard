@@ -26,44 +26,25 @@ export default function MetricCard({
   };
 
   return (
-    <Card className={`p-4 border-l-4 ${variantStyles[variant]} transition-all hover:shadow-md`}>
-      <div className="flex items-start justify-between">
-        <div className="flex-1">
-          <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
-            {title}
-          </p>
-          <div className="mt-2 flex items-baseline gap-2">
-            <span className="text-2xl font-bold text-foreground">
-              {value}
-            </span>
-            {unit && (
-              <span className="text-sm font-medium text-muted-foreground">
-                {unit}
-              </span>
-            )}
-          </div>
-          {subtitle && (
-            <p className="mt-1 text-xs text-muted-foreground">
-              {subtitle}
-            </p>
-          )}
-        </div>
-        {Icon && (
-          <div className={`p-2 rounded-lg ${
-            variant === 'warning' ? 'bg-warning/10' :
-            variant === 'success' ? 'bg-success/10' :
-            variant === 'accent' ? 'bg-accent/10' :
-            'bg-primary/10'
-          }`}>
-            <Icon className={`h-5 w-5 ${
-              variant === 'warning' ? 'text-warning' :
-              variant === 'success' ? 'text-success' :
-              variant === 'accent' ? 'text-accent' :
-              'text-primary'
-            }`} />
-          </div>
+    <Card className={`p-3 border-l-4 ${variantStyles[variant]} transition-all hover:shadow-md`}>
+      <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
+        {title}
+      </p>
+      <div className="mt-1 flex items-baseline gap-1.5">
+        <span className="text-xl font-bold text-foreground">
+          {value}
+        </span>
+        {unit && (
+          <span className="text-xs font-medium text-muted-foreground">
+            {unit}
+          </span>
         )}
       </div>
+      {subtitle && (
+        <p className="mt-0.5 text-xs text-muted-foreground">
+          {subtitle}
+        </p>
+      )}
     </Card>
   );
 }

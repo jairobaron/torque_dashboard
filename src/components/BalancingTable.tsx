@@ -20,14 +20,11 @@ const balancingData = [
 
 export default function BalancingTable() {
   return (
-    <Card className="p-4">
-      <div className="mb-4">
-        <h3 className="text-lg font-semibold text-foreground">Balanceo (CBE)</h3>
-        <p className="text-sm text-muted-foreground mt-1">
-          ΔCBE {'<'} 0 ⇒ exceso de contrapeso (quitar)
-        </p>
+    <Card className="p-3">
+      <div className="mb-3">
+        <h3 className="text-base font-semibold text-foreground">Balanceo (CBE)</h3>
         <p className="text-xs text-muted-foreground mt-1">
-          Conversión: ΔW<sub>lado</sub> = (ΔCBE · R) / (2 · r)
+          ΔCBE {'<'} 0 ⇒ exceso (quitar)
         </p>
       </div>
       
@@ -56,9 +53,9 @@ export default function BalancingTable() {
         </Table>
       </div>
       
-      <div className="mt-3 p-3 bg-warning/10 border border-warning/30 rounded-lg">
+      <div className="mt-2 p-2 bg-warning/10 border border-warning/30 rounded-lg">
         <p className="text-xs font-medium text-warning-foreground">
-          ⚠️ Valores negativos indican exceso de contrapeso
+          ⚠️ Valores negativos: exceso
         </p>
       </div>
     </Card>
