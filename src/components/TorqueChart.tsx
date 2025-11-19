@@ -45,6 +45,7 @@ export default function TorqueChart() {
             dataKey="angle" 
             label={{ value: 'Ángulo de la Manivela (θ) [grados]', position: 'insideBottom', offset: -5 }}
             tick={{ fill: 'hsl(var(--muted-foreground))' }}
+            ticks={[0, 50, 100, 150, 200, 250, 300, 350]}
           />
           <YAxis 
             label={{ value: 'Torque [in-lbf]', angle: -90, position: 'insideLeft' }}
