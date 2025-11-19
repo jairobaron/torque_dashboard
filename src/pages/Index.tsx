@@ -2,7 +2,6 @@ import { Activity, Gauge, Zap, Scale } from 'lucide-react';
 import TorqueChart from '@/components/TorqueChart';
 import MetricCard from '@/components/MetricCard';
 import BalancingTable from '@/components/BalancingTable';
-import ConclusionsPanel from '@/components/ConclusionsPanel';
 
 const Index = () => {
   return (
@@ -105,11 +104,6 @@ const Index = () => {
           <div className="pt-2">
             <BalancingTable />
           </div>
-        </div>
-
-        {/* Bottom Row - Conclusions */}
-        <div className="col-span-12">
-          <ConclusionsPanel />
         </div>
       </div>
     </div>
