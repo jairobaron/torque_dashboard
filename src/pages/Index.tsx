@@ -16,28 +16,23 @@ const Index = () => {
       {/* Main Grid Layout */}
       <div className="grid grid-cols-12 gap-4">
         {/* Chart - Takes most space */}
-        <div className="col-span-9">
+        <div className="col-span-10 p-2">
           <TorqueChart />
-        </div>
-
-        {/* Right Column - Balancing Table */}
-        <div className="col-span-3">
-          <BalancingTable />
-        </div>
-
-        {/* Bottom Row - Metric Cards (smaller, no icons) */}
-        <div className="col-span-12">
+          {/* Bottom Row - Metric Cards (smaller, no icons) */}
+        <div className="col-span-12 p-2">
           <div className="grid grid-cols-7 gap-3">
             <MetricCard
               title="PPRL (máx Lpr)"
               value="11,998.9"
               unit="lbf"
-              variant="accent"
+              subtitle='Carga Máxima'
+              variant="default"
             />
             <MetricCard
               title="MPRL (mín Lpr)"
               value="6,599.8"
               unit="lbf"
+              subtitle='Carga Mínima'
               variant="default"
             />
             <MetricCard
@@ -45,36 +40,43 @@ const Index = () => {
               value="9,299.4"
               unit="lbf"
               subtitle="Contrapeso ideal"
-              variant="success"
+              variant="warning"
             />
             <MetricCard
               title="CBE Actual"
-              value="9,460.4"
+              value="9,461.1"
               unit="lbf"
               subtitle="Promedio Lpr"
-              variant="default"
+              variant="warning"
             />
             <MetricCard
               title="ΔCBE"
-              value="-161.0"
+              value="-161.7"
               unit="lbf"
               subtitle="Exceso de contrapeso"
               variant="warning"
             />
             <MetricCard
-              title="Torque Pico Neto"
-              value="217,751"
+              title="Torque Pico"
+              value="197,907"
               unit="in-lbf"
-              variant="accent"
-            />
-            <MetricCard
-              title="% Carga Reductor"
-              value="68.05"
-              unit="%"
-              subtitle="Del rating máximo"
+              subtitle='Capacidad Nominal: 320,000 in-lbf'
               variant="success"
             />
+            <MetricCard
+              title="% Carga"
+              value="61.85"
+              unit="%"
+              subtitle="Del rating máximo"
+              variant="accent"
+            />
           </div>
+        </div>
+        </div>
+
+        {/* Right Column - Balancing Table */}
+        <div className="col-span-2">
+          <BalancingTable />
         </div>
       </div>
     </div>

@@ -1,32 +1,6 @@
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine } from 'recharts';
 import { Card } from '@/components/ui/card';
-
-// Generar datos simulados basados en la imagen
-const generateTorqueData = () => {
-  const data = [];
-  for (let angle = 0; angle <= 360; angle += 2) {
-    const rad = (angle * Math.PI) / 180;
-    
-    // Torque de carga (naranja) - patrón sinusoidal con ruido
-    const loadTorque = 320000 + 280000 * Math.sin(rad + Math.PI / 6) + (Math.random() - 0.5) * 40000;
-    
-    // Torque de contrapeso (azul) - patrón sinusoidal suave
-    const counterTorque = 320000 * Math.sin(rad + Math.PI);
-    
-    // Torque neto (verde) - diferencia con variación
-    const netTorque = (loadTorque - counterTorque) * 0.3 + (Math.random() - 0.5) * 30000;
-    
-    data.push({
-      angle,
-      loadTorque: Math.round(loadTorque),
-      counterTorque: Math.round(counterTorque),
-      netTorque: Math.round(netTorque),
-    });
-  }
-  return data;
-};
-
-const torqueData = generateTorqueData();
+import { torqueData } from '@/data/MockData';
 
 export default function TorqueChart() {
   return (
@@ -34,15 +8,18 @@ export default function TorqueChart() {
       <ResponsiveContainer width="100%" height={400}>
         <LineChart data={torqueData} margin={{ top: 5, right: 20, left: 20, bottom: 5 }}>
           <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" opacity={0.3} />
-          <XAxis 
-            dataKey="angle" 
-            label={{ value: 'Ángulo de la Manivela (θ) [grados]', position: 'insideBottom', offset: -5 }}
+          <XAxis
+            dataKey="angle"
+            type="number"
+            domain={[0, 360]}
+            label={{ value: 'Ángulo de la Manivela (θ) [grados]', position: 'insideBottom', offset: -6 }}
             tick={{ fill: 'hsl(var(--muted-foreground))' }}
             ticks={[0, 50, 100, 150, 200, 250, 300, 350]}
           />
           <YAxis 
-            label={{ value: 'Torque [in-lbf]', angle: -90, position: 'insideLeft' }}
+            label={{ value: 'Torque [in-lbf]', angle: -90, position: 'insideLeft', offset: -1 }}
             tick={{ fill: 'hsl(var(--muted-foreground))' }}
+            ticks={[-650000, -600000, -400000, -200000, 0, 200000, 400000, 600000, 650000]}
             tickFormatter={(value) => `${(value / 1000).toFixed(0)}k`}
           />
           <Tooltip 
@@ -62,13 +39,13 @@ export default function TorqueChart() {
           {/* Líneas de referencia para límites */}
           <ReferenceLine 
             y={320000} 
-            stroke="hsl(var(--warning))" 
+            stroke="hsl(224, 67%, 49%)" 
             strokeDasharray="8 4" 
             strokeWidth={2}
           />
           <ReferenceLine 
             y={-320000} 
-            stroke="hsl(var(--warning))" 
+            stroke="hsl(224, 67%, 49%)" 
             strokeDasharray="8 4" 
             strokeWidth={2}
           />
@@ -77,25 +54,26 @@ export default function TorqueChart() {
           <Line 
             type="monotone" 
             dataKey="loadTorque" 
-            stroke="hsl(var(--accent))" 
+            stroke="hsla(224, 87%, 63%, 1.00)" 
             strokeWidth={1.5}
+            strokeDasharray="3 3"
             dot={false}
             name="Torque de Carga"
           />
           <Line 
             type="monotone" 
             dataKey="counterTorque" 
-            stroke="hsl(195 85% 55%)" 
-            strokeWidth={2}
-            strokeDasharray="5 5"
+            stroke="hsla(36, 94%, 56%, 1.00)" 
+            strokeWidth={3}
+            strokeDasharray="8 4"
             dot={false}
-            name="Torque CBE Ideal"
+            name="Torque del Contrapeso"
           />
           <Line 
             type="monotone" 
             dataKey="netTorque" 
             stroke="hsl(var(--success))" 
-            strokeWidth={1.5}
+            strokeWidth={3}
             dot={false}
             name="Torque Neto"
           />

@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/table';
 
 const balancingData = [
-  { radius: 18, lbPerSide: -223.7 },
+  { radius: 18, lbPerSide: -224.6 },
   { radius: 20, lbPerSide: -201.3 },
   { radius: 22, lbPerSide: -183.0 },
   { radius: 24, lbPerSide: -167.8 },
@@ -20,12 +20,12 @@ const balancingData = [
 
 export default function BalancingTable() {
   return (
-    <Card className="p-3">
-      <div className="mb-3">
+    <Card className="p-2">
+      <div className="mb-2">
         <h3 className="text-base font-semibold text-foreground">Balanceo (CBE)</h3>
-        <p className="text-xs text-muted-foreground mt-1">
+        {/*<p className="text-sm text-muted-foreground mt-1">
           ΔCBE {'<'} 0 ⇒ exceso (quitar)
-        </p>
+        </p>*/}
       </div>
       
       <div className="overflow-hidden rounded-lg border border-border">
@@ -42,7 +42,7 @@ export default function BalancingTable() {
                 <TableCell className="text-center font-medium">
                   {row.radius}
                 </TableCell>
-                <TableCell className={`text-center font-mono font-medium ${
+                <TableCell className={`text-center font-medium ${
                   row.lbPerSide < 0 ? 'text-warning' : 'text-success'
                 }`}>
                   {row.lbPerSide.toFixed(1)}
@@ -54,10 +54,10 @@ export default function BalancingTable() {
       </div>
       
       <div className="mt-3 pt-3 border-t border-border">
-        <p className="text-xs text-muted-foreground">
-          <span className="font-semibold text-foreground">Pérdida por desbalanceo:</span> 0.352 kW
+        <p className="text-sm text-muted-foreground">
+          <span className="font-semibold text-foreground">Pérdida por desbalanceo: 0.368 kW</span>
         </p>
-        <p className="text-xs text-muted-foreground mt-0.5">
+        <p className="text-sm text-muted-foreground mt-0.5">
           (SPM=8.3, ρ=0.30)
         </p>
       </div>

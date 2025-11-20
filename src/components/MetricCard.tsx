@@ -19,10 +19,10 @@ export default function MetricCard({
   variant = 'default' 
 }: MetricCardProps) {
   const variantStyles = {
-    default: 'border-l-primary',
+    default: 'border-l-gray-500',
     warning: 'border-l-warning',
     success: 'border-l-success',
-    accent: 'border-l-accent',
+    accent: 'border-l-blue-500',
   };
 
   return (
